@@ -8,7 +8,7 @@ This repository is structured into three parts:
 - [1. Prerequest](#1-prerequest)
 - [2. Data preparation](#2-data-preparation)
   - [2.1 Create folders](#21-download-folders)
-  - [2.2 Download queries, qrels, and collections for TREC-DL](#22-download-queries-qrels-and-collections-for-trec-dl)
+  - [2.2 Download queries, qrels, and collections](#22-download-queries-qrels-and-collections)
   - [2.3 Download submitted run files](#23-download-submitted-run-files)
   - [2.4 Request depublicised qrels and run files](#24-request-depublicised-qrels-and-run-files)
 - [3. Create plots](#3-create-plots)
@@ -40,7 +40,7 @@ mkdir result
 mkdir plots
 ```
 
-### 2.2 Download quries, qrels and collections for TREC-DL
+### 2.2 Download quries, qrels and collections
 Download queries for TREC-DL 2019 to 2023:
 ```bash
 wget -P  data/queries/ https://raw.githubusercontent.com/castorini/anserini-tools/master/topics-and-qrels/topics.dl19-passage.txt
@@ -91,9 +91,9 @@ Please contact Shivani Upadhyay, the first author of the paper [UMBRELA: UMbrela
 
 Please place the depublicised qrels (`qrels.dl22-passage-depub`, `qrels.dl23-passage-depub`) in the folder ./data/qrels.
 Please place the depublicised runs (`runs.dl22-passage-depub`, `runs.dl23-passage-depub`) in the folder ./data/runs.
-```
 
-### 3. Create plots
+
+## 3. Create plots
 Run `rq2_thresholding.ipynb` to reproduce all plots for RQ2 (Re-rankers as judges via score thresholding) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq2` directory.
 

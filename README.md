@@ -3,15 +3,15 @@
 This is the repository for the paper titled **Reproducing Re-Rankers as Relevance Judges**.
 In this paper, we reproduce three re-rankers from different re-ranker families (monoT5, RankLLaMA, and Rank1) as relevance judgment predictors (a.k.a. relevance judges).
 
-This repository is structured into five distinct parts:
+This repository is structured into three parts:
+
 - [1. Prerequest](#1-prerequest)
 - [2. Data preparation](#2-data-preparation)
-- [3. Reproducing results](#3-reproducing-results)
-  - [3.1 RQ1: Re-rankers as judges via direct generation](#31-rq1-re-rankers-as-judges-via-direct-generation)
-  - [3.2 RQ2: Re-rankers as judges via score thresholding](#32-rq2-re-rankers-as-judges-via-score-thresholding)
-  - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#33-rq3-bias-of-re-ranker-based-judges-towards-re-rankers)
-  - [3.4 Create plots](#34-create-plots)
-  - [3.5 Results on nDCG@10](#35-results-on-ndcg10-we-report-the-results-on-ndcg10-here-because-of-limited-space-in-the-paper)
+  - [2.1 Create folders](#21-download-folders)
+  - [2.2 Download queries, qrels, and collections for TREC-DL](#22-download-queries-qrels-and-collections-for-trec-dl)
+  - [2.3 Download submitted run files](#23-download-submitted-run-files)
+  - [2.4 Request depublicised qrels and run files](#24-request-depublicised-qrels-and-run-files)
+- [3. Create plots](#3-create-plots)
 
 ## 1. Prerequest
 We recommend executing all processes in a Linux environment.
@@ -22,7 +22,7 @@ pip install -r requirements.txt
 Also, please install [Tevatron](https://github.com/texttron/tevatron) and [Pyserini](https://github.com/castorini/pyserini) in advance.
 
 ## 2. Data preparation
-### 2.1 Download folders
+### 2.1 Create folders
 Create the following folders:
 ```bash
 mkdir data
@@ -30,6 +30,7 @@ mkdir data/queries
 mkdir data/qrels
 mkdir data/indexes
 mkdir data/corpus
+mkdir data/runs
 
 mkdir output
 mkdir output/rerank_input
@@ -80,27 +81,22 @@ for file in ./data/corpus/msmarco_v2_passage/*.gz; do
 done
 ```
 
-### 2.3 Download submitted run files for TREC-DL 19 to 21
+### 2.3 Download submitted run files
+Please download the submitted run files for TREC-DL 2019, 2020, 2021, 2022, and 2023, and place them in the corresponding folders: `./data/runs/runs.dl19-passage`, `./data/runs/runs.dl20-passage`, `./data/runs/runs.dl21-passage`, .`/data/runs/runs.dl22-passage`, and `./data/runs/runs.dl23-passage`.
+Please make sure that every run file is unzipped and its compressed version deleted.
 
-### 2.3 Ask submitted run files for TREC-DL 22 and 23
-Note that we follow 
-Please ask Shivani Upadhyay, the first author of the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519) to get the
+### 2.4 Request depubliced qrels and run files
+Following the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), we use the depublicised versions of the qrels and submitted run files.
+Please contact Shivani Upadhyay, the first author of the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), the first author of the paper, to request access to these depublicised qrels (`qrels.dl23-passage-depub` and `qrels.dl23-passage-depub`) and run files (`runs.dl23-passage-depub` and `runs.dl23-passage-depub`).
 
+Please place the depublicised qrels (`qrels.dl22-passage-depub`, `qrels.dl23-passage-depub`) in the folder ./data/qrels.
+Please place the depublicised runs (`runs.dl22-passage-depub`, `runs.dl23-passage-depub`) in the folder ./data/runs.
 ```
-## 3. Reproducing results
 
-### 3.1 RQ1: Re-rankers as judges via direct generation
-
-### 3.2 RQ2: Re-rankers as judges via score thresholding
-
-### 3.3 RQ3: Bias of re-ranker-based judges towards re-rankers
-
-### 3.4 Create plots
+### 3. Create plots
 Run `rq2_thresholding.ipynb` to reproduce all plots for RQ2 (Re-rankers as judges via score thresholding) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq2` directory.
 
 Run `rq3_bias.ipynb` to reproduce all plots for RQ3 (Bias of re-ranker-based judges towards re-rankers) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq3` directory.
 
-### 3.5 Results on nDCG@10 (We report the results on nDCG@10 here because of limited space in the paper)
-Due to limited space in our paper, we present results on nDCG@10 here.

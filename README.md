@@ -11,6 +11,7 @@ This repository is structured into three parts:
   - [2.2 Download queries, qrels, and collections](#22-download-queries-qrels-and-collections)
   - [2.3 Download submitted run files](#23-download-submitted-run-files)
   - [2.4 Request depubliced qrels and run files](#24-request-depubliced-qrels-and-run-files)
+  - [2.5 Request UMBRELA's predicted relevance judgments](#25-request-umbrelas-predicted-relevance-judgments)
 - [3. Create plots](#3-create-plots)
 
 ## 1. Prerequest
@@ -86,12 +87,15 @@ Please download the submitted run files for TREC-DL 2019, 2020, 2021, 2022, and 
 Please make sure that every run file is unzipped and its compressed version deleted.
 
 ### 2.4 Request depubliced qrels and run files
-Following the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), we use the depublicised versions of the qrels and submitted run files.
-Please contact Shivani Upadhyay, the first author of the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), the first author of the paper, to request access to these depublicised qrels (`qrels.dl23-passage-depub` and `qrels.dl23-passage-depub`) and run files (`runs.dl23-passage-depub` and `runs.dl23-passage-depub`).
+Following the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), we use the depubliced versions of the qrels and submitted run files.
+Please contact Shivani Upadhyay, the first author of the paper [UMBRELA](https://arxiv.org/pdf/2406.06519), to request access to these depubliced qrels (`qrels.dl23-passage-depub` and `qrels.dl23-passage-depub`) and run files (`runs.dl23-passage-depub` and `runs.dl23-passage-depub`).
 
-Please place the depublicised qrels (`qrels.dl22-passage-depub`, `qrels.dl23-passage-depub`) in the folder ./data/qrels.
-Please place the depublicised runs (`runs.dl22-passage-depub`, `runs.dl23-passage-depub`) in the folder ./data/runs.
+Please place the depubliced qrels (`qrels.dl22-passage-depub`, `qrels.dl23-passage-depub`) in the folder ./data/qrels.
+Please place the depubliced runs (`runs.dl22-passage-depub`, `runs.dl23-passage-depub`) in the folder ./data/runs.
 
+### 2.5 Request UMBRELA's predicted relevance judgments
+Please contact Shivani Upadhyay, the first author of the paper [UMBRELA](https://arxiv.org/pdf/2406.06519), to request access to UMBRELA's predicted relevance judgments for TREC-DL 2019 to 2023.
+Place these files in the folder `./output/qrels/`.
 
 ## 3. Create plots
 Run `rq2_thresholding.ipynb` to reproduce all plots for RQ2 (Re-rankers as judges via score thresholding) presented in the paper.

@@ -7,10 +7,10 @@ This repository is structured into three parts:
 
 - [1. Prerequest](#1-prerequest)
 - [2. Data preparation](#2-data-preparation)
-  - [2.1 Create folders](#21-download-folders)
+  - [2.1 Create folders](#21-create-folders)
   - [2.2 Download queries, qrels, and collections](#22-download-queries-qrels-and-collections)
   - [2.3 Download submitted run files](#23-download-submitted-run-files)
-  - [2.4 Request depublicised qrels and run files](#24-request-depublicised-qrels-and-run-files)
+  - [2.4 Request depubliced qrels and run files](#24-request-depubliced-qrels-and-run-files)
 - [3. Create plots](#3-create-plots)
 
 ## 1. Prerequest
@@ -40,7 +40,7 @@ mkdir result
 mkdir plots
 ```
 
-### 2.2 Download quries, qrels and collections
+### 2.2 Download queries, qrels, and collections
 Download queries for TREC-DL 2019 to 2023:
 ```bash
 wget -P  data/queries/ https://raw.githubusercontent.com/castorini/anserini-tools/master/topics-and-qrels/topics.dl19-passage.txt

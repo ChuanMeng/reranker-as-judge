@@ -3,6 +3,8 @@
 This is the repository for the paper titled **Reproducing Re-Rankers as Relevance Judges**.
 In this paper, we reproduce three re-rankers from different re-ranker families (monoT5, RankLLaMA, and Rank1) as relevance judgment predictors (a.k.a. relevance judges).
 
+The code in this repository can reproduce all results reported in the paper.
+
 This repository is structured into five distinct parts:
 - [1. Prerequest](#1-prerequest)
 - [2. Data preparation](#2-data-preparation)

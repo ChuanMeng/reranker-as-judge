@@ -1034,10 +1034,10 @@ The reproduced plots will be saved in the `./plots/rq2` directory.
 Run `rq3_bias.ipynb` to reproduce all plots for RQ3 (Bias of re-ranker-based judges towards re-rankers) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq3` directory.
 
-### 5. Results on nDCG@10 (We report the results on nDCG@10 here because of limited space in the paper)
+### 5. Results on nDCG@10
 Due to limited space in our paper, we present results on nDCG@10 here.
 
-The following table shows Kendall’s τ correlation coefficients between the system orderings induced by relevance judgments from TREC assessors and those predicted by each re-ranker-based relevance judge adapted via **direct generation** (RQ1).
+For RQ1, the following table shows Kendall’s τ correlation coefficients between the system orderings induced by relevance judgments from TREC assessors and those predicted by each re-ranker-based relevance judge adapted via **direct generation**.
 Results are shown for system orderings based on nDCG@10.
 The results of UMBRELA, a state-of-the-art relevance judge, are included for reference.
 The best value in each column is **boldfaced**, while the second best is *italicized*.
@@ -1052,7 +1052,22 @@ The best value in each column is **boldfaced**, while the second best is *italic
 | Rank1-14B     | 0.838      | 0.897      | *0.929*    | **0.912**  | 0.919      |
 | Rank1-32B     | 0.862      | *0.909*    | 0.926      | 0.908      | 0.926      |
 
-Our observations are similar to those obtained using MAP@100 or MRR@10 as target metrics.
-Re-ranker-based judges (Rank1 and monoT5) outperform UMBRELA on three out of five datasets.
+
+For RQ2, the following table shows Kendall’s τ correlation coefficients between the system orderings induced by relevance judgments from TREC assessors and those predicted by each re-ranker-based relevance judge adapted via **score thresholding**.
+
+| Method        | TREC-DL 19 | TREC-DL 20 | TREC-DL 21 | TREC-DL 22 | TREC-DL 23 |
+| ------------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+| UMBRELA       | 0.898      | **0.944**      | **0.936**      | *0.911*      | **0.929**      |
+| monoT5 base   | *0.921*      | 0.738      | 0.786      | 0.713      | 0.435      |
+| monoT5 large  | 0.900      | 0.789      | 0.814      | 0.715      | 0.734      |
+| monoT5 3B     | **0.923**      | 0.816      | 0.851      | 0.802      | 0.771      |
+| RankLLaMA-7B  | 0.819      | 0.861      | 0.848      | 0.802      | 0.649      |
+| RankLLaMA-13B | 0.810      | 0.843      | 0.841      | 0.744      | 0.671      |
+| Rank1-7B      | 0.853      | 0.867      | 0.925      | 0.878      | **0.929**      |
+| Rank1-14B     | 0.859      | *0.912*      | *0.928*      | 0.912      | *0.926*      |
+| Rank1-32B     | 0.850      | 0.910      | 0.922      | **0.919**     | **0.929**      |
 
 
+
+Overall, our observations are similar to those obtained using MAP@100 or MRR@10 as target metrics.
+Re-ranker-based judges (Rank1 and monoT5) show strong performance, outperforming UMBRELA on three out of five datasets.

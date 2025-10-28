@@ -895,7 +895,7 @@ done
 ```
 Files with ranking performance saved in `./output/rq3/ranking_performance`.
 
-Also, We measure ranking performance of all run files using UMBRELLA for refereance:
+Also, we measure ranking performance of all run files using UMBRELLA for refereance:
 ```bash
 judge=gpt-4o_0123_100_0_1
 
@@ -999,7 +999,7 @@ python -u evaluate_system_ranking.py \
 --a_dir ./output/rq3/ranking_performance/ranking_performance.nist.${judgeset}.json \
 --b_dir ./output/rq3/ranking_performance_/ranking_performance.${judge}.${judgeset}.json \
 --output_path ./result/rq3/system_ranking/result.${judge}.${judgeset}.json \
---metrics map@100 mrr@10
+--metrics ndcg@10 map@100 mrr@10
 done
 ```
 The result files saved in `./result/rq3/system_ranking/`.
@@ -1022,7 +1022,7 @@ python -u evaluate_system_ranking.py \
 --a_dir ./output/rq3/ranking_performance/ranking_performance.nist.${judgeset}.json \
 --b_dir ./output/rq3/ranking_performance/ranking_performance.${judge}.${judgeset}.json \
 --output_path ./result/rq3/system_ranking/result.${judge}.${judgeset}.json \
---metrics map@100 mrr@10
+--metrics ndcg@10 map@100 mrr@10
 done
 done
 ```
@@ -1036,3 +1036,19 @@ The reproduced plots will be saved in the `./plots/rq3` directory.
 
 ### 5. Results on nDCG@10 (We report the results on nDCG@10 here because of limited space in the paper)
 Due to limited space in our paper, we present results on nDCG@10 here.
+
+The following table shows Kendall’s τ correlation coefficients between the system orderings induced by relevance judgments from TREC assessors and those predicted by each re-ranker-based relevance judge adapted via direct generation. 
+Results are shown for system orderings based on nDCG@10.
+The results of UMBRELA, a state-of-the-art relevance judge, are included for reference.
+
+The best value in each column is boldfaced, while the second best is <u>underlined</u>.
+| Method        | TREC-DL 19   | TREC-DL 20   | TREC-DL 21   | TREC-DL 22   | TREC-DL 23   |
+| ------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
+| **UMBRELA**   | 0.898        | **0.944**    | **0.936**    | <u>0.911</u> | <u>0.929</u> |
+| monoT5 base   | 0.918        | 0.746        | 0.795        | 0.669        | 0.661        |
+| monoT5 large  | <u>0.906</u> | 0.792        | 0.841        | 0.708        | 0.737        |
+| **monoT5 3B** | **0.927**    | 0.845        | 0.902        | 0.783        | 0.723        |
+| Rank1-7B      | 0.853        | 0.885        | 0.925        | 0.875        | **0.933**    |
+| Rank1-14B     | 0.838        | 0.897        | <u>0.929</u> | **0.912**    | 0.919        |
+| Rank1-32B     | 0.862        | <u>0.909</u> | 0.926        | 0.908        | 0.926        |
+

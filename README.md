@@ -3,16 +3,15 @@
 This is the repository for the paper titled **Reproducing Re-Rankers as Relevance Judges**.
 In this paper, we reproduce three re-rankers from different re-ranker families (monoT5, RankLLaMA, and Rank1) as relevance judgment predictors (a.k.a. relevance judges).
 
-This repository is structured into three parts:
-
+This repository is structured into five distinct parts:
 - [1. Prerequest](#1-prerequest)
 - [2. Data preparation](#2-data-preparation)
-  - [2.1 Create folders](#21-create-folders)
-  - [2.2 Download queries, qrels, and collections](#22-download-queries-qrels-and-collections)
-  - [2.3 Download submitted run files](#23-download-submitted-run-files)
-  - [2.4 Request depubliced qrels and run files](#24-request-depubliced-qrels-and-run-files)
-  - [2.5 Request UMBRELA's predicted relevance judgments](#25-request-umbrelas-predicted-relevance-judgments)
-- [3. Create plots](#3-create-plots)
+- [3. Reproducing results](#3-reproducing-results)
+  - [3.1 RQ1: Re-rankers as judges via direct generation](#31-rq1-re-rankers-as-judges-via-direct-generation)
+  - [3.2 RQ2: Re-rankers as judges via score thresholding](#32-rq2-re-rankers-as-judges-via-score-thresholding)
+  - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#33-rq3-bias-of-re-ranker-based-judges-towards-re-rankers)
+- [4. Create plots](#4-create-plots)
+- [5. Results on nDCG@10](#5-results-on-ndcg10-we-report-the-results-on-ndcg10-here-because-of-limited-space-in-the-paper)
 
 ## 1. Prerequest
 We recommend executing all processes in a Linux environment.
@@ -26,21 +25,12 @@ Also, please install [Tevatron](https://github.com/texttron/tevatron) and [Pyser
 ### 2.1 Create folders
 Create the following folders:
 ```bash
-mkdir data
-mkdir data/queries
-mkdir data/qrels
-mkdir data/indexes
-mkdir data/corpus
-mkdir data/runs
-
-mkdir output
-mkdir output/rerank_input
-mkdir output/qrels
-mkdir output/runs
-mkdir result
-mkdir plots
+mkdir -p \
+data/{queries,qrels,indexes,corpus,runs} \
+output/{rq1_2/{rerank_input,qrels,runs},rq3/{rerank_input,qrels,runs}} \
+result/{rq1_2/{rj,system_ranking},rq3/system_ranking} \
+plots/{rq1_2,rq3}
 ```
-
 ### 2.2 Download queries, qrels, and collections
 Download queries for TREC-DL 2019 to 2023:
 ```bash
@@ -58,6 +48,12 @@ wget -P  data/qrels/ https://raw.githubusercontent.com/castorini/anserini-tools/
 wget -P  data/qrels/ https://raw.githubusercontent.com/castorini/anserini-tools/master/topics-and-qrels/qrels.dl21-passage.txt
 wget -P  data/qrels/ https://raw.githubusercontent.com/castorini/anserini-tools/master/topics-and-qrels/qrels.dl22-passage.txt
 wget -P  data/qrels/ https://raw.githubusercontent.com/castorini/anserini-tools/master/topics-and-qrels/qrels.dl23-passage.txt
+
+mv data/qrels/qrels.dl19-passage.txt data/qrels/qrels.nist.dl19-passage.txt
+mv data/qrels/qrels.dl20-passage.txt data/qrels/qrels.nist.dl20-passage.txt
+mv data/qrels/qrels.dl21-passage.txt data/qrels/qrels.nist.dl21-passage.txt
+mv data/qrels/qrels.dl22-passage.txt data/qrels/qrels.nist.dl22-passage.txt
+mv data/qrels/qrels.dl23-passage.txt data/qrels/qrels.nist.dl23-passage.txt
 ```
 
 Download and process corpus files for MS MARCO V1 and V2 passage ranking collections:
@@ -87,20 +83,520 @@ Please download the submitted run files for TREC-DL 2019, 2020, 2021, 2022, and 
 Please make sure that every run file is unzipped and its compressed version deleted.
 
 ### 2.4 Request depubliced qrels and run files
-Following the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), we use the depubliced versions of the qrels and submitted run files.
-Please contact Shivani Upadhyay, the first author of the paper [UMBRELA](https://arxiv.org/pdf/2406.06519), to request access to these depubliced qrels (`qrels.dl23-passage-depub` and `qrels.dl23-passage-depub`) and run files (`runs.dl23-passage-depub` and `runs.dl23-passage-depub`).
+Following the paper [UMBRELA: UMbrela is the (Open-Source Reproduction of the) Bing RELevance Assessor](https://arxiv.org/pdf/2406.06519), we use the depubliced versions of the qrels and submitted run files for TREC-DL 2022 and 2023.
+Please contact Shivani Upadhyay, the first author of the paper [UMBRELA](https://arxiv.org/pdf/2406.06519), to request access to these depubliced qrels (`qrels.dl23-passage_duped` and `qrels.dl23-passage_duped`) and run files (`runs.dl23-passage_duped` and `runs.dl23-passage_duped`).
 
-Please place the depubliced qrels (`qrels.dl22-passage-depub`, `qrels.dl23-passage-depub`) in the folder ./data/qrels.
-Please place the depubliced runs (`runs.dl22-passage-depub`, `runs.dl23-passage-depub`) in the folder ./data/runs.
+Please place the depubliced qrels (`qrels.dl22-passage_duped`, `qrels.dl23-passage_duped`) in the folder ./data/qrels.
+And please rename them:
+```bash
+mv data/qrels/qrels.dl22-passage-duped.txt data/qrels/qrels.nist.dl22-passage_duped.txt
+mv data/qrels/qrels.dl23-passage-duped.txt data/qrels/qrels.nist.dl23-passage_duped.txt
+```
+
+Also, please place the depubliced runs (`runs.dl22-passage_duped`, `runs.dl23-passage_duped`) in the folder ./data/runs.
 
 ### 2.5 Request UMBRELA's predicted relevance judgments
 Please contact Shivani Upadhyay, the first author of the paper [UMBRELA](https://arxiv.org/pdf/2406.06519), to request access to UMBRELA's predicted relevance judgments for TREC-DL 2019 to 2023.
-Place these files in the folder `./output/qrels/`.
+Place these files in the folder `./output/rq1_2/qrels/`.
+And please rename these files as `qrels.gpt-4o_0123_100_0_1.dl19-passage.txt`, `qrels.gpt-4o_0123_100_0_1.dl20-passage.txt`, `qrels.gpt-4o_0123_100_0_1.dl21-passage.txt`, `qrels.gpt-4o_0123_100_0_1.dl22-passage_duped.txt` and `qrels.gpt-4o_0123_100_0_1.dl23-passage_duped.txt`.
 
-## 3. Create plots
+## 3. Reproducing results
+
+### 3.1 RQ1: Re-rankers as judges via direct generation
+
+#### 3.1.1 Generate re-ranker input files
+Run the following commands to generate re-ranker input files for [monoT5](https://aclanthology.org/2020.findings-emnlp.63/), [RankLLaMA](https://dl.acm.org/doi/10.1145/3626772.3657951), and [Rank1](https://openreview.net/pdf?id=Pg0PAvbhGv) (We use a unified input format for all re-rankers):
+```bash
+for d in 19 20 21 22 23
+do
+    if [[ $d -eq 19 || $d -eq 20 ]]; then
+        corpus_name="msmarco_v1_passage.tsv"
+    else
+        corpus_name="msmarco_v2_passage"
+    fi
+
+    if [[ $d -eq 19 ]]; then
+        query_name="topics.dl${d}-passage.txt"
+    else
+        query_name="topics.dl${d}.txt"
+    fi
+
+    if [[ $d -eq 22 || $d -eq 23 ]]; then
+        qrels_name="qrels.nist.dl${d}-passage_duped.txt"
+        output_name="rerank_input.dl${d}-passage_duped.jsonl"
+    else
+        qrels_name="qrels.nist.dl${d}-passage.txt"
+        output_name="rerank_input.dl${d}-passage.jsonl"
+    fi
+
+    echo dl${d}, ${qrels_name}, ${corpus_name}, ${query_name},${output_name}
+    python prepare_rerank_file.py \
+        --qrels_path ./data/qrels/${qrels_name} \
+        --corpus_path ./data/corpus/${corpus_name} \
+        --query_path ./data/queries/${query_name} \
+        --output_path ./output/rq1_2/rerank_input/${output_name}
+done
+```
+The generated re-ranker input files will be saved in `./output/rq1_2/rerank_input/`.
+
+#### 3.1.2 Run monoT5 and Rank1
+Run the following commands to execute monoT5 (base, large, and 3B) and Rank1 (7B, 14B, and 32B) to directly generate predicted relevance judgments (qrels) for the query–document pairs in the original TREC-DL 2019–2023 qrels:
+```bash
+# monoT5
+GPU_ID=0
+BATCH_SIZE=8
+
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+export CUDA_VISIBLE_DEVICES="$GPU_ID"
+
+for m in "castorini/monot5-base-msmarco" "castorini/monot5-large-msmarco" "castorini/monot5-3b-msmarco"
+do
+for d in 19 20 21 22 23
+do
+   echo ">>> Starting model ${m} on dataset dl${d} at $(date)"
+   if [[ $d -eq 22 || $d -eq 23 ]]; then
+        dataset_name="rerank_input.dl${d}-passage_duped.jsonl"
+        rerank_output_name="run.${m##*/}.dl${d}-passage_duped.txt"
+        qrels_output_name="qrels.${m##*/}-gen.dl${d}-passage_duped.txt"
+
+    else
+        dataset_name="rerank_input.dl${d}-passage.jsonl"
+        rerank_output_name="run.${m##*/}.dl${d}-passage.txt"
+        qrels_output_name="qrels.${m##*/}-gen.dl${d}-passage.txt"
+    fi
+
+python -u monot5.py \
+--model_name_or_path "${m}" \
+--tokenizer_name "${m}" \
+--dataset_path ./output/rq1_2/rerank_input/${dataset_name} \
+--rerank_output_path ./output/rq1_2/runs/${rerank_output_name} \
+--qrels_output_path ./output/rq1_2/qrels/${qrels_output_name} \
+--batch_size 8
+echo ">>> Finish model ${m} on dataset dl${d} at $(date)"
+done
+done
+
+# Rank1
+GPU_ID=0
+BATCH_SIZE=512
+
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+export CUDA_VISIBLE_DEVICES="$GPU_ID"
+
+for m in "jhu-clsp/rank1-7b" "jhu-clsp/rank1-14b" "jhu-clsp/rank1-32b-awq"
+do
+for d in 19 20 21 22 23
+do
+   echo ">>> Starting model ${m} on dataset dl${d} at $(date)"
+   if [[ $d -eq 22 || $d -eq 23 ]]; then
+        dataset_name="rerank_input.dl${d}-passage_duped.jsonl"
+        rerank_output_name="run.${m##*/}.dl${d}-passage_duped.txt"
+        qrels_output_name="qrels.${m##*/}-gen.dl${d}-passage_duped.txt"
+
+    else
+        dataset_name="rerank_input.dl${d}-passage.jsonl"
+        rerank_output_name="run.${m##*/}.dl${d}-passage.txt"
+        qrels_output_name="qrels.${m##*/}-gen.dl${d}-passage.txt"
+    fi
+
+python -u rank1.py \
+--model_name_or_path "${m}" \
+--dataset_path ./output/rerank_input/${dataset_name} \
+--rerank_output_path ./output/rq1_2/runs/${rerank_output_name} \
+--qrels_output_path ./output/rq1_2/qrels/${qrels_output_name} \
+--batch_size $BATCH_SIZE
+echo ">>> Finish model ${m} on dataset dl${d} at $(date)"
+done
+done
+```
+Because monoT5 and Rank1 can both directly generate relevance judgments and re-ranking scores, the above commands produce predicted relevance judgments for the same query–document pairs as in the original TREC-DL qrels (saved in `./output/rq1_2/qrels/`) and re-ranking scores for all query–document pairs (saved in `./output/rq1_2/runs/`).
+Please note that re-ranking scores will be used in 3.2.
+
+#### 3.1.3 Measure the ranking performance of the submitted runs
+
+We first measure the ranking performance of the submitted runs using human-based relevance judgments for reference:
+```bash
+for judge in nist
+do
+for d in 19 20 21 22 23
+do
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+         judgeset="dl${d}-passage"
+
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_ranking_performance.py \
+--run_dir ./data/runs/runs.${judgeset} \
+--qrels_dir ./data/qrels/qrels.${judge}.${judgeset}.txt \
+--output_dir ./output/rq1_2/ranking_performance \
+--rel_scale 2
+done
+done
+```
+Files with ranking performance saved in `./output/rq1_2/ranking_performance`.
+
+We also measure the ranking performance of the submitted runs using both human and UMBRELLA-based relevance judgments for reference:
+```bash
+for judge in nist gpt-4o_0123_100_0_1
+do
+for d in 19 20 21 22 23
+do
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+         judgeset="dl${d}-passage"
+
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_ranking_performance.py \
+--run_dir ./data/runs/runs.${judgeset} \
+--qrels_dir ./output/rq1_2/qrels.${judge}.${judgeset}.txt \
+--output_dir ./output/rq1_2/ranking_performance \
+--rel_scale 2
+done
+done
+```
+
+We then measure the ranking performance of the submitted runs using relevance judgment generated by the re-rankers:
+```bash
+for judge in monot5-base-gen monot5-large-gen monot5-3b-gen rank1-7b-gen rank1-14b-gen rank1-32b-awq-gen
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+         judgeset="dl${d}-passage"
+
+    fi
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_ranking_performance.py \
+--run_dir ./data/runs/runs.${judgeset} \
+--qrels_dir ./output/rq1_2/qrels/qrels.${judge}.${judgeset}.txt \
+--output_dir ./output/rq1_2/ranking_performance \
+--rel_scale 1
+done
+```
+
+### 3.1.3 System ranking evaluation
+We first evaluate the correlation between the system rankings produced by UMBRELLA and those produced by human judges for reference:
+```bash
+judge=gpt-4o_0123_100_0_1
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+        judgeset="dl${d}-passage"
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_system_ranking.py \
+--a_dir ./output/rq1_2/ranking_performance/ranking_performance.nist.${judgeset}.json \
+--b_dir ./output/rq1_2/ranking_performance/ranking_performance.${judge}.${judgeset}.json \
+--output_path ./result/rq1_2/system_ranking/result.${judge}.${judgeset}.json \
+--metrics ndcg@10 map@100 mrr@10
+done
+```
+The result files saved in `./result/rq1_2/system_ranking/`.
+
+We then evaluate the correlation between the system rankings produced by the re-ranker-based judges and those produced by each re-ranker-based relevance judge:
+```bash
+
+for judge in monot5-base-gen monot5-large-gen monot5-3b-gen rank1-7b-gen rank1-14b-gen rank1-32b-awq-gen
+do
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+        judgeset="dl${d}-passage"
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_system_ranking.py \
+--a_dir ./output/rq1_2/ranking_performance/ranking_performance.nist.${judgeset}.json \
+--b_dir ./output/rq1_2/ranking_performance/ranking_performance.${judge}.${judgeset}.json \
+--output_path ./result/rq1_2/system_ranking/result.${judge}.${judgeset}.json \
+--metrics ndcg@10 map@100 mrr@10
+done
+done
+```
+
+### 3.1.4 Relevance judgment aggrement evaluation
+We first measure the relevance judgment agreement between UMBRELLA and human annotators for reference.
+```bash
+judge=gpt-4o_0123_100_0_1
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+        judgeset="dl${d}-passage"
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_rj.py \
+--qrels_true_path ./data/qrels/qrels.nist.${judgeset}.txt \
+--qrels_pred_path ./output/rq1_2/qrels/qrels.${judge}.${judgeset}.txt \
+--output_path ./result/rq1_2/rj/result.${judge}.${judgeset}.json \
+--binary
+done
+```
+The result files saved in `./result/rq1_2/rj/`.
+
+We then measure the relevance judgment agreement (Cohen's kappa) between each re-ranker-based judge and human annotators:
+```bash
+for judge in monot5-base-gen monot5-large-gen monot5-3b-gen rank1-7b-gen rank1-14b-gen rank1-32b-awq-gen
+do
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+        judgeset="dl${d}-passage"
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_rj.py \
+--qrels_true_path ./data/qrels/qrels.nist.${judgeset}.txt \
+--qrels_pred_path ./output/rq1_2/qrels/qrels.${judge}.${judgeset}.txt \
+--output_path ./result/rq1_2/rj/result.${judge}.${judgeset}.json \
+--binary --pre_is_binary
+done
+done
+```
+
+### 3.2 RQ2: Re-rankers as judges via score thresholding
+
+#### 3.2.1 Run RankLLaMA
+Because we already obtained the re-ranking scores for the query–document pairs in the original TREC-DL 2019–2023 qrels in 3.1.2, we only need to generate RankLLaMA’s outputs here.
+We use the re-ranker input files produced in 3.1.1.
+Run the following commands to execute RankLLaMA and generate its re-ranking scores for the query–document pairs in the original TREC-DL 2019–2023 qrels:
+```bash
+GPU_ID=0
+BATCH_SIZE=32
+
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+export CUDA_VISIBLE_DEVICES="$GPU_ID"
+
+tokenizers=(
+  "meta-llama/Llama-2-7b-hf"
+  "meta-llama/Llama-2-13b-hf"
+)
+
+models=(
+  "castorini/rankllama-v1-7b-lora-passage"
+  "castorini/rankllama-v1-13b-lora-passage"
+)
+
+for i in "${!models[@]}"; do
+  t="${tokenizers[$i]}"
+  m="${models[$i]}"
+
+  for d in 19 20 21 22 23; do
+    echo ">>> Starting model ${m} on dataset dl${d} at $(date)"
+
+    if [[ $d -eq 22 || $d -eq 23 ]]; then
+      dataset_name="rerank_input.dl${d}-passage_duped.jsonl"
+      rerank_output_name="run.${m##*/}.dl${d}-passage_duped.txt"
+      tmp_name="tmp_run.${m##*/}.dl${d}-passage_duped.txt"
+    else
+      dataset_name="rerank_input.dl${d}-passage.jsonl"
+      rerank_output_name="run.${m##*/}.dl${d}-passage.txt"
+      tmp_name="tmp_run.${m##*/}.dl${d}-passage.txt"
+    fi
+
+    python -m tevatron.reranker.driver.rerank \
+      --output_dir=temp \
+      --model_name_or_path "$m" \
+      --tokenizer_name "$t" \
+      --dataset_path "./output/rq1_2/rerank_input/${dataset_name}" \
+      --fp16 \
+      --per_device_eval_batch_size "${BATCH_SIZE}" \
+      --rerank_max_len $((32 + 164)) \
+      --dataset_name json \
+      --query_prefix "query: " \
+      --passage_prefix "document: " \
+      --rerank_output_path "./output/rq1_2/runs/${tmp_name}"
+
+    python -m tevatron.utils.format.convert_result_to_trec \
+      --input "./output/rq1_2/runs/${tmp_name}" \
+      --output "./output/rq1_2/runs/${rerank_output_name}"
+
+    rm -f "./output/rq1_2/runs/${tmp_name}"
+
+    echo ">>> Finished model ${m} on dataset dl${d} at $(date)"
+  done
+done
+```
+The produced re-ranking scores saved in `./output/rq1_rq2/runs/`.
+
+#### 3.2.2 Generate qrels at different thresholds
+
+The following commands generate monoT5's qrels at each threshold (with a step size of 0.01):
+```bash
+for m monot5-base monot5-large monot5-3b
+do
+for d in 19 20 21 22 23
+do
+
+if [[ $d -eq 22 || $d -eq 23 ]]; then
+        run_name="run.${m}.dl${d}-passage_duped.txt"
+        output_name="qrels.${m}.dl${d}-passage_duped"
+    else
+        run_name="run.${m}.dl${d}-passage.txt"
+        output_name="qrels.${m}.dl${d}-passage"
+    fi
+
+python -u score2label.py \
+--run_path ./output/rq1_2/runs/${run_name} \
+--output_dir ./output/rq1_2/qrels/${output_name} \
+--step 0.01
+done
+done
+```
+The resulting folders, each containing qrels at different thresholds, will be saved under `./output/rq1_2/qrels/'.
+
+Similaly, the following commands generate Rank1's qrels at each threshold (with a step size of 0.01):
+```bash
+for m rank1-7b rank1-14b rank1-32b-awq
+do
+for d in 19 20 21 22 23
+do
+
+if [[ $d -eq 22 || $d -eq 23 ]]; then
+        run_name="run.${m}.dl${d}-passage_duped.txt"
+        output_name="qrels.${m}.dl${d}-passage_duped"
+    else
+        run_name="run.${m}.dl${d}-passage.txt"
+        output_name="qrels.${m}.dl${d}-passage"
+    fi
+
+python -u score2label.py \
+--run_path ./output/rq1_2/runs/${run_name} \
+--output_dir ./output/rq1_2/qrels/${output_name} \
+--step 0.01
+done
+done
+```
+Slightly differently, the following commands generate RankLLaMA’s predicted qrels at each threshold (with a step size of 0.1, since RankLLaMA produces a much wider range of re-ranking scores):
+```bash
+for m rankllama-7b rankllama-13b
+do
+for d in 19 20 21 22 23
+do
+
+if [[ $d -eq 22 || $d -eq 23 ]]; then
+        run_name="run.${m}.dl${d}-passage_duped.txt"
+        output_name="qrels.${m}.dl${d}-passage_duped"
+    else
+        run_name="run.${m}.dl${d}-passage.txt"
+        output_name="qrels.${m}.dl${d}-passage"
+    fi
+
+python -u score2label.py \
+--run_path ./output/rq1_2/runs/${run_name} \
+--output_dir ./output/rq1_2/qrels/${output_name} \
+--step 0.1
+done
+done
+```
+
+#### 3.1.3 Measure the ranking performance of the submitted runs at different thresholds
+
+We measure the ranking performance of the submitted runs using re-ranker-based judge at each threshold:
+```bash
+for judge in monot5-base monot5-large monot5-3b rankllama-7b rankllama-13b rank1-7b rank1-14b rank1-32b-awq
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+         judgeset="dl${d}-passage"
+
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_ranking_performance.py \
+--run_dir ./data/runs/runs.${judgeset} \
+--qrels_dir ./output/rq1_2/qrels/qrels.${judge}.${judgeset} \ # contain qrels at different thresholds
+--output_dir ./output/rq1_2/ranking_performance \
+--rel_scale 1
+done
+```
+The above commands will generate a subfolder for each dataset under `./output/rq1_2/ranking_performance`.
+Each subfolder contains a set of files, where each file corresponds to the ranking performance evaluated at a particular threshold.
+
+#### 3.2.4 System ranking evaluation at different thresholds
+
+We evaluate the correlation between the system rankings produced by the re-ranker-based judges and those produced by each re-ranker-based relevance judge at different thresholds:
+```bash
+for judge in monot5-base monot5-large monot5-3b rankllama-7b rankllama-13b rank1-7b rank1-14b rank1-32b-awq
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+        judgeset="dl${d}-passage"
+    fi
+
+echo -----${d} -----
+python -u evaluate_system_ranking.py \
+--a_dir ./output/rq1_2/ranking_performance/ranking_performance.nist.${judgeset}.json \
+--b_dir ./output/rq1_2/ranking_performance/ranking_performance.${judge}.${judgeset} \ # a folder, not a file
+--output_path ./result/rq1_2/system_ranking/result.${judge}.${judgeset}.json \
+--metrics ndcg@10 map@100 mrr@10
+done
+done
+```
+The result files will be saved in `./result/rq1_2/system_ranking/`.
+Each result file (ending with `.json`) contains the correlation values across different thresholds.
+
+### 3.2.5 Relevance judgment aggrement evaluation at different thresholds
+
+We then measure the relevance judgment agreement (Cohen's kappa) between human annotators and each re-ranker-based judge at different thresholds:
+```bash
+for judge in monot5-base monot5-large monot5-3b rankllama-7b rankllama-13b rank1-7b rank1-14b rank1-32b-awq
+for d in 19 20 21 22 23
+do
+
+ if [[ $d -eq 22 || $d -eq 23 ]]; then
+        judgeset="dl${d}-passage_duped"
+    else
+        judgeset="dl${d}-passage"
+    fi
+
+echo ">>> ${judge} on ${judgeset}"
+python -u evaluate_rj.py \
+--qrels_true_path ./data/qrels/qrels.nist.${judgeset}.txt \
+--qrels_pred_path ./output/rq1_2/qrels/qrels.${judge}.${judgeset} \ # a folder, not a file
+--output_path ./result/rq1_2/rj/result.${judge}.${judgeset}.json \
+--binary --pre_is_binary
+done
+done
+```
+The above commands will produce one result file (ending with .json) for each judge on each dataset under `./result/rq1_2/rj/`.
+Each result file contains the agreement values (Cohen’s κ) computed across different thresholds.
+
+### 3.3 RQ3: Bias of re-ranker-based judges towards re-rankers
+
+## 4. Create plots
 Run `rq2_thresholding.ipynb` to reproduce all plots for RQ2 (Re-rankers as judges via score thresholding) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq2` directory.
 
 Run `rq3_bias.ipynb` to reproduce all plots for RQ3 (Bias of re-ranker-based judges towards re-rankers) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq3` directory.
 
+### 5. Results on nDCG@10 (We report the results on nDCG@10 here because of limited space in the paper)
+Due to limited space in our paper, we present results on nDCG@10 here.

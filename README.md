@@ -744,7 +744,7 @@ do
 
     echo dl${d}, ${run_name}, ${qrels_name}, ${corpus_name}, ${query_name},${output_name}
     python prepare_rerank_file.py \
-        --run_path ./data/runs/${run_name} \
+        --run_path ./output/rq3/runs/runs.${retriever}--reranker.dl${d}-passage/${run_name} \
         --qrels_path ./data/qrels/${qrels_name} \
         --corpus_path ./data/corpus/${corpus_name} \
         --query_path ./data/queries/${query_name} \
@@ -1029,7 +1029,7 @@ done
 
 ## 4. Create plots
 Run `rq2_thresholding.ipynb` to reproduce all plots for RQ2 (Re-rankers as judges via score thresholding) presented in the paper.
-The reproduced plots will be saved in the `./plots/rq2` directory.
+The reproduced plots will be saved in the `./plots/rq1_2` directory.
 
 Run `rq3_bias.ipynb` to reproduce all plots for RQ3 (Bias of re-ranker-based judges towards re-rankers) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq3` directory.

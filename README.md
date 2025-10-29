@@ -11,7 +11,7 @@ This repository is structured into five distinct parts:
 - [3. Reproducing results](#sec-reproduce)
   - [3.1 RQ1: Re-rankers as judges via direct generation](#sec-rq1)
   - [3.2 RQ2: Re-rankers as judges via score thresholding](#sec-rq2)
-  - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#sec-rq2)
+  - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#sec-rq3)
 - [4. Create plots](#sec-plots)
 - [5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)](#sec-ndcg10)
 

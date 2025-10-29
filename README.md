@@ -3,7 +3,7 @@
 This is the repository for the paper titled **Reproducing Re-Rankers as Relevance Judges**.
 In this paper, we reproduce three re-rankers from different re-ranker families ([monoT5](https://aclanthology.org/2020.findings-emnlp.63/), [RankLLaMA](https://dl.acm.org/doi/10.1145/3626772.3657951) and [Rank1](https://openreview.net/pdf?id=Pg0PAvbhGv)) as relevance judgment predictors (a.k.a. relevance judges).
 
-he code in this repository can reproduce all the results and figures reported in the paper, as well as some additional results not included due to space limits.
+The code in this repository can reproduce all the results and figures reported in the paper, as well as some additional results not included due to space limits.
 
 This repository is structured into five distinct parts:
 - [1. Prerequisite](#sec-prereq)

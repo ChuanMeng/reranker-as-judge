@@ -1,7 +1,7 @@
 # Reproducing Re-Rankers as Relevance Judges
 
 This is the repository for the paper titled **Reproducing Re-Rankers as Relevance Judges**.
-In this paper, we reproduce three re-rankers from different re-ranker families (monoT5, RankLLaMA, and Rank1) as relevance judgment predictors (a.k.a. relevance judges).
+In this paper, we reproduce three re-rankers from different re-ranker families ([monoT5](https://aclanthology.org/2020.findings-emnlp.63/), [RankLLaMA](https://dl.acm.org/doi/10.1145/3626772.3657951) and [Rank1](https://openreview.net/pdf?id=Pg0PAvbhGv)) as relevance judgment predictors (a.k.a. relevance judges).
 
 The code in this repository can reproduce all results reported in the paper.
 
@@ -380,7 +380,7 @@ done
 ### 3.2 RQ2: Re-rankers as judges via score thresholding
 
 #### 3.2.1 Run RankLLaMA
-Because we already obtained the re-ranking scores for the query–document pairs in the original TREC-DL 2019–2023 qrels in 3.1.2, we only need to generate RankLLaMA’s outputs here.
+Because we already obtained the re-ranking scores of monoT5 and Rank1 for the query–document pairs in the original TREC-DL 2019–2023 qrels in 3.1.2, we only need to generate RankLLaMA’s outputs here.
 We use the re-ranker input files produced in 3.1.1.
 Run the following commands to execute RankLLaMA and generate its re-ranking scores for the query–document pairs in the original TREC-DL 2019–2023 qrels:
 ```bash
@@ -946,7 +946,7 @@ done
 done
 ```
 
-For RankLLaMA, we use the relevance judgments produced with the thresholds (MAP@100 as the target metric) selected in 3.2 for each dataset; see `cross_eval_summary.csv` produeced in 3.2 for more infomration.
+For RankLLaMA, we use the relevance judgments produced with the thresholds (MAP@100 as the target metric) selected in 3.2 for each dataset; see `cross_eval_summary.csv` produced in 3.2 for more infomration.
 Run the following commands:
 ```bash
 # rankllama-7b

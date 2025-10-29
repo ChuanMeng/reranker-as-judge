@@ -284,7 +284,7 @@ python -u evaluate_ranking_performance.py \
 done
 ```
 
-### 3.1.3 System ranking evaluation
+#### 3.1.4 System ranking evaluation
 We first evaluate the correlation between the system rankings produced by UMBRELLA and those produced by human judges for reference:
 ```bash
 judge=gpt-4o_0123_100_0_1
@@ -331,7 +331,7 @@ done
 done
 ```
 
-### 3.1.4 Relevance judgment aggrement evaluation
+#### 3.1.5 Relevance judgment aggrement evaluation
 We first measure the relevance judgment agreement between UMBRELLA and human annotators for reference.
 ```bash
 judge=gpt-4o_0123_100_0_1
@@ -513,7 +513,7 @@ done
 done
 ```
 
-#### 3.1.3 Measure the ranking performance of the submitted runs at different thresholds
+#### 3.2.3 Measure the ranking performance of the submitted runs at different thresholds
 
 We measure the ranking performance of the submitted runs using re-ranker-based judge at each threshold:
 ```bash
@@ -565,7 +565,7 @@ done
 The above commands will produce one result file (ending with .json) for each judge on each dataset under `./result/rq1_2/system_ranking/`.
 Each result file contains correlation values across different thresholds.
 
-### 3.2.5 Relevance judgment aggrement evaluation at different thresholds
+#### 3.2.5 Relevance judgment aggrement evaluation at different thresholds
 
 We then measure the relevance judgment agreement (Cohen's kappa) between human annotators and each re-ranker-based judge at different thresholds:
 ```bash
@@ -591,7 +591,7 @@ done
 The above commands will produce one result file (ending with .json) for each judge on each dataset under `./result/rq1_2/rj/`.
 Each result file contains the agreement values (Cohen’s κ) computed across different thresholds.
 
-### 3.2.6 Threshold selection
+#### 3.2.6 Threshold selection
 We select the optimal threshold through cross-evaluation, namely using the threshold that yields the best performance on one TREC-DL dataset and applying it to another:
 19→20, 20→19, 21→22, 22→21, and 22→23.
 Run the following commands to perform the cross-evaluation:

@@ -6,7 +6,7 @@ In this paper, we reproduce three re-rankers from different re-ranker families (
 The code in this repository can reproduce all results reported in the paper.
 
 This repository is structured into five distinct parts:
-- [1. Prerequest](#1-prerequest)
+- [1. Prerequisite](#1-prerequisite)
 - [2. Data preparation](#2-data-preparation)
 - [3. Reproducing results](#3-reproducing-results)
   - [3.1 RQ1: Re-rankers as judges via direct generation](#31-rq1-re-rankers-as-judges-via-direct-generation)
@@ -15,7 +15,7 @@ This repository is structured into five distinct parts:
 - [4. Create plots](#4-create-plots)
 - [5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)](#5-results-on-ndcg10-we-report-results-on-ndcg10-here-because-of-limited-space-in-the-paper)
 
-## 1. Prerequest
+## 1. Prerequisite
 We recommend executing all processes in a Linux environment.
 Install dependencies:
 ```bash

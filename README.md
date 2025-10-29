@@ -3,7 +3,7 @@
 This is the repository for the paper titled **Reproducing Re-Rankers as Relevance Judges**.
 In this paper, we reproduce three re-rankers from different re-ranker families ([monoT5](https://aclanthology.org/2020.findings-emnlp.63/), [RankLLaMA](https://dl.acm.org/doi/10.1145/3626772.3657951) and [Rank1](https://openreview.net/pdf?id=Pg0PAvbhGv)) as relevance judgment predictors (a.k.a. relevance judges).
 
-The code in this repository can reproduce all results reported in the paper.
+he code in this repository can reproduce all the results and figures reported in the paper, as well as some additional results not included due to space limits.
 
 This repository is structured into five distinct parts:
 - [1. Prerequisite](#sec-prereq)
@@ -13,7 +13,7 @@ This repository is structured into five distinct parts:
   - [3.2 RQ2: Re-rankers as judges via score thresholding](#sec-rq2)
   - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#sec-rq3)
 - [4. Create plots](#sec-plots)
-- [5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)](#sec-ndcg10)
+- [5. Results on nDCG@10 (We report results on nDCG@10 here because of limited space in the paper)](#sec-ndcg10)
 
 <a id="sec-prereq"></a>
 ## 1. Prerequisite
@@ -1041,7 +1041,7 @@ Run `rq3_bias.ipynb` to reproduce all plots for RQ3 (Bias of re-ranker-based jud
 The reproduced plots will be saved in the `./plots/rq3` directory.
 
 <a id="sec-ndcg10"></a>
-### 5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)
+### 5. Results on nDCG@10 (We report results on nDCG@10 here because of limited space in the paper)
 Due to limited space in our paper, we present results on nDCG@10 here.
 
 nDCG@10 results for **RQ1**.

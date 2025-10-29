@@ -13,7 +13,7 @@ This repository is structured into five distinct parts:
   - [3.2 RQ2: Re-rankers as judges via score thresholding](#32-rq2-re-rankers-as-judges-via-score-thresholding)
   - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#33-rq3-bias-of-re-ranker-based-judges-towards-re-rankers)
 - [4. Create plots](#4-create-plots)
-- [5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)](#5-results-on-ndcg10-we-report-results-on-ndcg10-here-because-of-limited-space-in-the-paper)
+- [5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)](#sec-ndcg10)
 
 ## 1. Prerequisite
 We recommend executing all processes in a Linux environment.
@@ -1036,6 +1036,7 @@ The reproduced plots will be saved in the `./plots/rq1_2` directory.
 Run `rq3_bias.ipynb` to reproduce all plots for RQ3 (Bias of re-ranker-based judges towards re-rankers) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq3` directory.
 
+<a id="sec-ndcg10"></a>
 ### 5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)
 Due to limited space in our paper, we present results on nDCG@10 here.
 

@@ -1,0 +1,193 @@
+direction,judge,task,metric,src_json,tgt_json,src_threshold,src_score,tgt_score
+DL19->20,monot5-base,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl19-passage.json,./result/system_ranking/result.monot5-base.dl20-passage.json,0.43,0.933,0.738
+DL19->20,monot5-base,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-base.dl19-passage.json,./result/system_ranking/result.monot5-base.dl20-passage.json,0.76,0.916,0.795
+DL19->20,monot5-base,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl19-passage.json,./result/system_ranking/result.monot5-base.dl20-passage.json,0.91,0.885,0.668
+DL19->20,monot5-base,rj,Cohen’s κ,./result/rj/result.monot5-base.dl19-passage.json,./result/rj/result.monot5-base.dl20-passage.json,0.2,0.394,0.307
+DL20->19,monot5-base,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl20-passage.json,./result/system_ranking/result.monot5-base.dl19-passage.json,0.56,0.757,0.921
+DL20->19,monot5-base,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-base.dl20-passage.json,./result/system_ranking/result.monot5-base.dl19-passage.json,0.59,0.807,0.889
+DL20->19,monot5-base,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl20-passage.json,./result/system_ranking/result.monot5-base.dl19-passage.json,0.49,0.820,0.846
+DL20->19,monot5-base,rj,Cohen’s κ,./result/rj/result.monot5-base.dl20-passage.json,./result/rj/result.monot5-base.dl19-passage.json,0.84,0.341,0.350
+DL19->20,monot5-large,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl19-passage.json,./result/system_ranking/result.monot5-large.dl20-passage.json,0.67,0.939,0.789
+DL19->20,monot5-large,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-large.dl19-passage.json,./result/system_ranking/result.monot5-large.dl20-passage.json,0.57,0.910,0.832
+DL19->20,monot5-large,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl19-passage.json,./result/system_ranking/result.monot5-large.dl20-passage.json,0.97,0.901,0.714
+DL19->20,monot5-large,rj,Cohen’s κ,./result/rj/result.monot5-large.dl19-passage.json,./result/rj/result.monot5-large.dl20-passage.json,0.43,0.427,0.311
+DL20->19,monot5-large,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl20-passage.json,./result/system_ranking/result.monot5-large.dl19-passage.json,0.35,0.835,0.900
+DL20->19,monot5-large,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-large.dl20-passage.json,./result/system_ranking/result.monot5-large.dl19-passage.json,0.42,0.836,0.898
+DL20->19,monot5-large,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl20-passage.json,./result/system_ranking/result.monot5-large.dl19-passage.json,0.13,0.785,0.749
+DL20->19,monot5-large,rj,Cohen’s κ,./result/rj/result.monot5-large.dl20-passage.json,./result/rj/result.monot5-large.dl19-passage.json,0.81,0.359,0.398
+DL19->20,monot5-3b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl19-passage.json,./result/system_ranking/result.monot5-3b.dl20-passage.json,0.89,0.940,0.816
+DL19->20,monot5-3b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-3b.dl19-passage.json,./result/system_ranking/result.monot5-3b.dl20-passage.json,0.27,0.901,0.868
+DL19->20,monot5-3b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl19-passage.json,./result/system_ranking/result.monot5-3b.dl20-passage.json,0.95,0.859,0.752
+DL19->20,monot5-3b,rj,Cohen’s κ,./result/rj/result.monot5-3b.dl19-passage.json,./result/rj/result.monot5-3b.dl20-passage.json,0.01,0.426,0.364
+DL20->19,monot5-3b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl20-passage.json,./result/system_ranking/result.monot5-3b.dl19-passage.json,0.01,0.899,0.923
+DL20->19,monot5-3b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-3b.dl20-passage.json,./result/system_ranking/result.monot5-3b.dl19-passage.json,0.01,0.876,0.892
+DL20->19,monot5-3b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl20-passage.json,./result/system_ranking/result.monot5-3b.dl19-passage.json,0.03,0.792,0.818
+DL20->19,monot5-3b,rj,Cohen’s κ,./result/rj/result.monot5-3b.dl20-passage.json,./result/rj/result.monot5-3b.dl19-passage.json,0.43,0.387,0.391
+DL19->20,rankllama-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl19-passage.json,./result/system_ranking/result.rankllama-7b.dl20-passage.json,0.8,0.933,0.861
+DL19->20,rankllama-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl19-passage.json,./result/system_ranking/result.rankllama-7b.dl20-passage.json,1.2,0.892,0.877
+DL19->20,rankllama-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl19-passage.json,./result/system_ranking/result.rankllama-7b.dl20-passage.json,3.6,0.860,0.664
+DL19->20,rankllama-7b,rj,Cohen’s κ,./result/rj/result.rankllama-7b.dl19-passage.json,./result/rj/result.rankllama-7b.dl20-passage.json,-0.6,0.435,0.371
+DL20->19,rankllama-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl20-passage.json,./result/system_ranking/result.rankllama-7b.dl19-passage.json,-2.5,0.888,0.819
+DL20->19,rankllama-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl20-passage.json,./result/system_ranking/result.rankllama-7b.dl19-passage.json,1.6,0.889,0.889
+DL20->19,rankllama-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl20-passage.json,./result/system_ranking/result.rankllama-7b.dl19-passage.json,-0.3,0.784,0.806
+DL20->19,rankllama-7b,rj,Cohen’s κ,./result/rj/result.rankllama-7b.dl20-passage.json,./result/rj/result.rankllama-7b.dl19-passage.json,1.1,0.405,0.400
+DL19->20,rankllama-13b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl19-passage.json,./result/system_ranking/result.rankllama-13b.dl20-passage.json,3.9,0.930,0.843
+DL19->20,rankllama-13b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl19-passage.json,./result/system_ranking/result.rankllama-13b.dl20-passage.json,3.4,0.892,0.876
+DL19->20,rankllama-13b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl19-passage.json,./result/system_ranking/result.rankllama-13b.dl20-passage.json,7.6,0.853,0.651
+DL19->20,rankllama-13b,rj,Cohen’s κ,./result/rj/result.rankllama-13b.dl19-passage.json,./result/rj/result.rankllama-13b.dl20-passage.json,1.5,0.455,0.340
+DL20->19,rankllama-13b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl20-passage.json,./result/system_ranking/result.rankllama-13b.dl19-passage.json,0.7,0.895,0.810
+DL20->19,rankllama-13b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl20-passage.json,./result/system_ranking/result.rankllama-13b.dl19-passage.json,3.4,0.876,0.892
+DL20->19,rankllama-13b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl20-passage.json,./result/system_ranking/result.rankllama-13b.dl19-passage.json,1.0,0.764,0.781
+DL20->19,rankllama-13b,rj,Cohen’s κ,./result/rj/result.rankllama-13b.dl20-passage.json,./result/rj/result.rankllama-13b.dl19-passage.json,3.0,0.380,0.407
+DL19->20,rank1-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl19-passage.json,./result/system_ranking/result.rank1-7b.dl20-passage.json,0.02,0.886,0.867
+DL19->20,rank1-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-7b.dl19-passage.json,./result/system_ranking/result.rank1-7b.dl20-passage.json,0.99,0.913,0.884
+DL19->20,rank1-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl19-passage.json,./result/system_ranking/result.rank1-7b.dl20-passage.json,0.01,0.847,0.795
+DL19->20,rank1-7b,rj,Cohen’s κ,./result/rj/result.rank1-7b.dl19-passage.json,./result/rj/result.rank1-7b.dl20-passage.json,0.99,0.443,0.455
+DL20->19,rank1-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl20-passage.json,./result/system_ranking/result.rank1-7b.dl19-passage.json,0.97,0.889,0.853
+DL20->19,rank1-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-7b.dl20-passage.json,./result/system_ranking/result.rank1-7b.dl19-passage.json,0.97,0.888,0.910
+DL20->19,rank1-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl20-passage.json,./result/system_ranking/result.rank1-7b.dl19-passage.json,0.97,0.828,0.835
+DL20->19,rank1-7b,rj,Cohen’s κ,./result/rj/result.rank1-7b.dl20-passage.json,./result/rj/result.rank1-7b.dl19-passage.json,0.99,0.455,0.443
+DL19->20,rank1-14b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl19-passage.json,./result/system_ranking/result.rank1-14b.dl20-passage.json,0.07,0.859,0.912
+DL19->20,rank1-14b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-14b.dl19-passage.json,./result/system_ranking/result.rank1-14b.dl20-passage.json,0.07,0.904,0.887
+DL19->20,rank1-14b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl19-passage.json,./result/system_ranking/result.rank1-14b.dl20-passage.json,0.04,0.779,0.820
+DL19->20,rank1-14b,rj,Cohen’s κ,./result/rj/result.rank1-14b.dl19-passage.json,./result/rj/result.rank1-14b.dl20-passage.json,0.99,0.463,0.438
+DL20->19,rank1-14b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl20-passage.json,./result/system_ranking/result.rank1-14b.dl19-passage.json,0.06,0.915,0.859
+DL20->19,rank1-14b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-14b.dl20-passage.json,./result/system_ranking/result.rank1-14b.dl19-passage.json,0.98,0.892,0.898
+DL20->19,rank1-14b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl20-passage.json,./result/system_ranking/result.rank1-14b.dl19-passage.json,0.3,0.848,0.763
+DL20->19,rank1-14b,rj,Cohen’s κ,./result/rj/result.rank1-14b.dl20-passage.json,./result/rj/result.rank1-14b.dl19-passage.json,0.99,0.438,0.463
+DL19->20,rank1-32b-awq,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl19-passage.json,./result/system_ranking/result.rank1-32b-awq.dl20-passage.json,0.18,0.871,0.910
+DL19->20,rank1-32b-awq,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl19-passage.json,./result/system_ranking/result.rank1-32b-awq.dl20-passage.json,0.18,0.919,0.890
+DL19->20,rank1-32b-awq,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl19-passage.json,./result/system_ranking/result.rank1-32b-awq.dl20-passage.json,0.1,0.836,0.830
+DL19->20,rank1-32b-awq,rj,Cohen’s κ,./result/rj/result.rank1-32b-awq.dl19-passage.json,./result/rj/result.rank1-32b-awq.dl20-passage.json,0.05,0.461,0.417
+DL20->19,rank1-32b-awq,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl20-passage.json,./result/system_ranking/result.rank1-32b-awq.dl19-passage.json,0.04,0.919,0.850
+DL20->19,rank1-32b-awq,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl20-passage.json,./result/system_ranking/result.rank1-32b-awq.dl19-passage.json,0.88,0.891,0.910
+DL20->19,rank1-32b-awq,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl20-passage.json,./result/system_ranking/result.rank1-32b-awq.dl19-passage.json,0.32,0.837,0.808
+DL20->19,rank1-32b-awq,rj,Cohen’s κ,./result/rj/result.rank1-32b-awq.dl20-passage.json,./result/rj/result.rank1-32b-awq.dl19-passage.json,0.98,0.422,0.454
+DL21->22,monot5-base,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl21-passage.json,./result/system_ranking/result.monot5-base.dl22-passage_duped.json,0.92,0.835,0.713
+DL21->22,monot5-base,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-base.dl21-passage.json,./result/system_ranking/result.monot5-base.dl22-passage_duped.json,0.95,0.893,0.776
+DL21->22,monot5-base,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl21-passage.json,./result/system_ranking/result.monot5-base.dl22-passage_duped.json,0.92,0.827,0.570
+DL21->22,monot5-base,rj,Cohen’s κ,./result/rj/result.monot5-base.dl21-passage.json,./result/rj/result.monot5-base.dl22-passage_duped.json,0.84,0.352,0.240
+DL22->21,monot5-base,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl22-passage_duped.json,./result/system_ranking/result.monot5-base.dl21-passage.json,0.99,0.759,0.786
+DL22->21,monot5-base,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-base.dl22-passage_duped.json,./result/system_ranking/result.monot5-base.dl21-passage.json,0.82,0.820,0.872
+DL22->21,monot5-base,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl22-passage_duped.json,./result/system_ranking/result.monot5-base.dl21-passage.json,0.99,0.634,0.784
+DL22->21,monot5-base,rj,Cohen’s κ,./result/rj/result.monot5-base.dl22-passage_duped.json,./result/rj/result.monot5-base.dl21-passage.json,0.57,0.242,0.341
+DL21->22,monot5-large,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl21-passage.json,./result/system_ranking/result.monot5-large.dl22-passage_duped.json,0.57,0.854,0.715
+DL21->22,monot5-large,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-large.dl21-passage.json,./result/system_ranking/result.monot5-large.dl22-passage_duped.json,0.95,0.882,0.833
+DL21->22,monot5-large,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl21-passage.json,./result/system_ranking/result.monot5-large.dl22-passage_duped.json,0.75,0.839,0.668
+DL21->22,monot5-large,rj,Cohen’s κ,./result/rj/result.monot5-large.dl21-passage.json,./result/rj/result.monot5-large.dl22-passage_duped.json,0.78,0.385,0.256
+DL22->21,monot5-large,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl22-passage_duped.json,./result/system_ranking/result.monot5-large.dl21-passage.json,0.95,0.789,0.814
+DL22->21,monot5-large,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-large.dl22-passage_duped.json,./result/system_ranking/result.monot5-large.dl21-passage.json,0.9,0.856,0.870
+DL22->21,monot5-large,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl22-passage_duped.json,./result/system_ranking/result.monot5-large.dl21-passage.json,0.94,0.721,0.814
+DL22->21,monot5-large,rj,Cohen’s κ,./result/rj/result.monot5-large.dl22-passage_duped.json,./result/rj/result.monot5-large.dl21-passage.json,0.69,0.258,0.373
+DL21->22,monot5-3b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl21-passage.json,./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,0.57,0.906,0.802
+DL21->22,monot5-3b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-3b.dl21-passage.json,./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,0.95,0.919,0.887
+DL21->22,monot5-3b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl21-passage.json,./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,0.97,0.855,0.727
+DL21->22,monot5-3b,rj,Cohen’s κ,./result/rj/result.monot5-3b.dl21-passage.json,./result/rj/result.monot5-3b.dl22-passage_duped.json,0.8,0.413,0.273
+DL22->21,monot5-3b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,./result/system_ranking/result.monot5-3b.dl21-passage.json,0.97,0.849,0.851
+DL22->21,monot5-3b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,./result/system_ranking/result.monot5-3b.dl21-passage.json,0.83,0.904,0.902
+DL22->21,monot5-3b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,./result/system_ranking/result.monot5-3b.dl21-passage.json,0.91,0.742,0.842
+DL22->21,monot5-3b,rj,Cohen’s κ,./result/rj/result.monot5-3b.dl22-passage_duped.json,./result/rj/result.monot5-3b.dl21-passage.json,0.27,0.282,
+DL21->22,rankllama-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl21-passage.json,./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,2.4,0.863,0.802
+DL21->22,rankllama-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl21-passage.json,./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,3.3,0.887,0.834
+DL21->22,rankllama-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl21-passage.json,./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,2.9,0.849,0.660
+DL21->22,rankllama-7b,rj,Cohen’s κ,./result/rj/result.rankllama-7b.dl21-passage.json,./result/rj/result.rankllama-7b.dl22-passage_duped.json,2.3,0.425,0.232
+DL22->21,rankllama-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl21-passage.json,2.1,0.832,0.848
+DL22->21,rankllama-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl21-passage.json,1.9,0.887,0.860
+DL22->21,rankllama-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl21-passage.json,4.1,0.747,0.799
+DL22->21,rankllama-7b,rj,Cohen’s κ,./result/rj/result.rankllama-7b.dl22-passage_duped.json,./result/rj/result.rankllama-7b.dl21-passage.json,0.6,0.288,0.387
+DL21->22,rankllama-13b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl21-passage.json,./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,3.0,0.851,0.744
+DL21->22,rankllama-13b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl21-passage.json,./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,4.6,0.874,0.841
+DL21->22,rankllama-13b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl21-passage.json,./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,4.3,0.847,0.768
+DL21->22,rankllama-13b,rj,Cohen’s κ,./result/rj/result.rankllama-13b.dl21-passage.json,./result/rj/result.rankllama-13b.dl22-passage_duped.json,3.5,0.397,0.260
+DL22->21,rankllama-13b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl21-passage.json,5.8,0.834,0.841
+DL22->21,rankllama-13b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl21-passage.json,3.7,0.868,0.856
+DL22->21,rankllama-13b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl21-passage.json,5.8,0.780,0.836
+DL22->21,rankllama-13b,rj,Cohen’s κ,./result/rj/result.rankllama-13b.dl22-passage_duped.json,./result/rj/result.rankllama-13b.dl21-passage.json,2.6,0.274,0.360
+DL21->22,rank1-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl21-passage.json,./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,0.15,0.929,0.878
+DL21->22,rank1-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-7b.dl21-passage.json,./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,0.99,0.899,0.919
+DL21->22,rank1-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl21-passage.json,./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,0.02,0.851,0.725
+DL21->22,rank1-7b,rj,Cohen’s κ,./result/rj/result.rank1-7b.dl21-passage.json,./result/rj/result.rank1-7b.dl22-passage_duped.json,0.99,0.482,0.430
+DL22->21,rank1-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,./result/system_ranking/result.rank1-7b.dl21-passage.json,0.96,0.881,0.925
+DL22->21,rank1-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,./result/system_ranking/result.rank1-7b.dl21-passage.json,0.01,0.924,0.881
+DL22->21,rank1-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,./result/system_ranking/result.rank1-7b.dl21-passage.json,0.05,0.750,0.844
+DL22->21,rank1-7b,rj,Cohen’s κ,./result/rj/result.rank1-7b.dl22-passage_duped.json,./result/rj/result.rank1-7b.dl21-passage.json,0.99,0.430,0.482
+DL21->22,rank1-14b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl21-passage.json,./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,0.26,0.932,0.912
+DL21->22,rank1-14b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-14b.dl21-passage.json,./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,0.05,0.897,0.924
+DL21->22,rank1-14b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl21-passage.json,./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,0.02,0.842,0.746
+DL21->22,rank1-14b,rj,Cohen’s κ,./result/rj/result.rank1-14b.dl21-passage.json,./result/rj/result.rank1-14b.dl22-passage_duped.json,0.98,0.473,0.425
+DL22->21,rank1-14b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,./result/system_ranking/result.rank1-14b.dl21-passage.json,0.99,0.915,0.928
+DL22->21,rank1-14b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,./result/system_ranking/result.rank1-14b.dl21-passage.json,0.59,0.938,0.889
+DL22->21,rank1-14b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,./result/system_ranking/result.rank1-14b.dl21-passage.json,0.12,0.770,0.822
+DL22->21,rank1-14b,rj,Cohen’s κ,./result/rj/result.rank1-14b.dl22-passage_duped.json,./result/rj/result.rank1-14b.dl21-passage.json,0.99,0.427,0.472
+DL21->22,rank1-32b-awq,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl21-passage.json,./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,0.09,0.929,0.919
+DL21->22,rank1-32b-awq,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl21-passage.json,./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,0.81,0.888,0.925
+DL21->22,rank1-32b-awq,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl21-passage.json,./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,0.16,0.847,0.751
+DL21->22,rank1-32b-awq,rj,Cohen’s κ,./result/rj/result.rank1-32b-awq.dl21-passage.json,./result/rj/result.rank1-32b-awq.dl22-passage_duped.json,0.99,0.461,0.426
+DL22->21,rank1-32b-awq,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl21-passage.json,0.13,0.920,0.922
+DL22->21,rank1-32b-awq,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl21-passage.json,0.12,0.936,0.882
+DL22->21,rank1-32b-awq,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl21-passage.json,0.91,0.769,0.835
+DL22->21,rank1-32b-awq,rj,Cohen’s κ,./result/rj/result.rank1-32b-awq.dl22-passage_duped.json,./result/rj/result.rank1-32b-awq.dl21-passage.json,0.99,0.426,0.461
+DL22->23,monot5-base,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl22-passage_duped.json,./result/system_ranking/result.monot5-base.dl23-passage_duped.json,0.99,0.759,0.435
+DL22->23,monot5-base,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-base.dl22-passage_duped.json,./result/system_ranking/result.monot5-base.dl23-passage_duped.json,0.82,0.820,0.808
+DL22->23,monot5-base,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl22-passage_duped.json,./result/system_ranking/result.monot5-base.dl23-passage_duped.json,0.99,0.634,0.487
+DL22->23,monot5-base,rj,Cohen’s κ,./result/rj/result.monot5-base.dl22-passage_duped.json,./result/rj/result.monot5-base.dl23-passage_duped.json,0.57,0.242,0.269
+DL23->22,monot5-base,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl23-passage_duped.json,./result/system_ranking/result.monot5-base.dl22-passage_duped.json,0.96,0.701,0.728
+DL23->22,monot5-base,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-base.dl23-passage_duped.json,./result/system_ranking/result.monot5-base.dl22-passage_duped.json,0.07,0.818,0.771
+DL23->22,monot5-base,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-base.dl23-passage_duped.json,./result/system_ranking/result.monot5-base.dl22-passage_duped.json,0.97,0.739,0.608
+DL23->22,monot5-base,rj,Cohen’s κ,./result/rj/result.monot5-base.dl23-passage_duped.json,./result/rj/result.monot5-base.dl22-passage_duped.json,0.15,0.272,0.223
+DL22->23,monot5-large,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl22-passage_duped.json,./result/system_ranking/result.monot5-large.dl23-passage_duped.json,0.95,0.789,0.734
+DL22->23,monot5-large,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-large.dl22-passage_duped.json,./result/system_ranking/result.monot5-large.dl23-passage_duped.json,0.9,0.856,0.815
+DL22->23,monot5-large,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl22-passage_duped.json,./result/system_ranking/result.monot5-large.dl23-passage_duped.json,0.94,0.721,0.669
+DL22->23,monot5-large,rj,Cohen’s κ,./result/rj/result.monot5-large.dl22-passage_duped.json,./result/rj/result.monot5-large.dl23-passage_duped.json,0.69,0.258,0.295
+DL23->22,monot5-large,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl23-passage_duped.json,./result/system_ranking/result.monot5-large.dl22-passage_duped.json,0.72,0.788,0.734
+DL23->22,monot5-large,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-large.dl23-passage_duped.json,./result/system_ranking/result.monot5-large.dl22-passage_duped.json,0.22,0.845,0.767
+DL23->22,monot5-large,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-large.dl23-passage_duped.json,./result/system_ranking/result.monot5-large.dl22-passage_duped.json,0.65,0.795,0.672
+DL23->22,monot5-large,rj,Cohen’s κ,./result/rj/result.monot5-large.dl23-passage_duped.json,./result/rj/result.monot5-large.dl22-passage_duped.json,0.69,0.295,0.258
+DL22->23,monot5-3b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,./result/system_ranking/result.monot5-3b.dl23-passage_duped.json,0.97,0.849,0.771
+DL22->23,monot5-3b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,./result/system_ranking/result.monot5-3b.dl23-passage_duped.json,0.83,0.904,0.835
+DL22->23,monot5-3b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,./result/system_ranking/result.monot5-3b.dl23-passage_duped.json,0.91,0.742,0.719
+DL22->23,monot5-3b,rj,Cohen’s κ,./result/rj/result.monot5-3b.dl22-passage_duped.json,./result/rj/result.monot5-3b.dl23-passage_duped.json,0.27,0.282,0.336
+DL23->22,monot5-3b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl23-passage_duped.json,./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,0.9,0.798,0.825
+DL23->22,monot5-3b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.monot5-3b.dl23-passage_duped.json,./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,0.91,0.855,0.901
+DL23->22,monot5-3b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.monot5-3b.dl23-passage_duped.json,./result/system_ranking/result.monot5-3b.dl22-passage_duped.json,0.06,0.748,0.666
+DL23->22,monot5-3b,rj,Cohen’s κ,./result/rj/result.monot5-3b.dl23-passage_duped.json,./result/rj/result.monot5-3b.dl22-passage_duped.json,0.05,0.343,0.275
+DL22->23,rankllama-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl23-passage_duped.json,2.1,0.832,0.649
+DL22->23,rankllama-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl23-passage_duped.json,1.9,0.887,0.788
+DL22->23,rankllama-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl23-passage_duped.json,4.1,0.747,0.655
+DL22->23,rankllama-7b,rj,Cohen’s κ,./result/rj/result.rankllama-7b.dl22-passage_duped.json,./result/rj/result.rankllama-7b.dl23-passage_duped.json,0.6,0.288,0.311
+DL23->22,rankllama-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl23-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,-3.2,0.811,0.586
+DL23->22,rankllama-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl23-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,0.1,0.845,0.831
+DL23->22,rankllama-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-7b.dl23-passage_duped.json,./result/system_ranking/result.rankllama-7b.dl22-passage_duped.json,-2.0,0.780,0.436
+DL23->22,rankllama-7b,rj,Cohen’s κ,./result/rj/result.rankllama-7b.dl23-passage_duped.json,./result/rj/result.rankllama-7b.dl22-passage_duped.json,0.3,0.315,0.287
+DL22->23,rankllama-13b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl23-passage_duped.json,5.8,0.834,0.671
+DL22->23,rankllama-13b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl23-passage_duped.json,3.7,0.868,0.785
+DL22->23,rankllama-13b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl23-passage_duped.json,5.8,0.780,0.700
+DL22->23,rankllama-13b,rj,Cohen’s κ,./result/rj/result.rankllama-13b.dl22-passage_duped.json,./result/rj/result.rankllama-13b.dl23-passage_duped.json,2.6,0.274,0.314
+DL23->22,rankllama-13b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl23-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,2.5,0.801,0.731
+DL23->22,rankllama-13b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl23-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,4.0,0.855,0.855
+DL23->22,rankllama-13b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rankllama-13b.dl23-passage_duped.json,./result/system_ranking/result.rankllama-13b.dl22-passage_duped.json,-0.3,0.855,0.376
+DL23->22,rankllama-13b,rj,Cohen’s κ,./result/rj/result.rankllama-13b.dl23-passage_duped.json,./result/rj/result.rankllama-13b.dl22-passage_duped.json,2.6,0.314,0.274
+DL22->23,rank1-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,./result/system_ranking/result.rank1-7b.dl23-passage_duped.json,0.96,0.881,0.929
+DL22->23,rank1-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,./result/system_ranking/result.rank1-7b.dl23-passage_duped.json,0.01,0.924,0.886
+DL22->23,rank1-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,./result/system_ranking/result.rank1-7b.dl23-passage_duped.json,0.05,0.750,0.804
+DL22->23,rank1-7b,rj,Cohen’s κ,./result/rj/result.rank1-7b.dl22-passage_duped.json,./result/rj/result.rank1-7b.dl23-passage_duped.json,0.99,0.430,0.386
+DL23->22,rank1-7b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl23-passage_duped.json,./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,0.87,0.936,0.876
+DL23->22,rank1-7b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-7b.dl23-passage_duped.json,./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,0.04,0.906,0.920
+DL23->22,rank1-7b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-7b.dl23-passage_duped.json,./result/system_ranking/result.rank1-7b.dl22-passage_duped.json,0.98,0.827,0.741
+DL23->22,rank1-7b,rj,Cohen’s κ,./result/rj/result.rank1-7b.dl23-passage_duped.json,./result/rj/result.rank1-7b.dl22-passage_duped.json,0.99,0.386,0.430
+DL22->23,rank1-14b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,./result/system_ranking/result.rank1-14b.dl23-passage_duped.json,0.99,0.915,0.926
+DL22->23,rank1-14b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,./result/system_ranking/result.rank1-14b.dl23-passage_duped.json,0.59,0.938,0.906
+DL22->23,rank1-14b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,./result/system_ranking/result.rank1-14b.dl23-passage_duped.json,0.12,0.770,0.797
+DL22->23,rank1-14b,rj,Cohen’s κ,./result/rj/result.rank1-14b.dl22-passage_duped.json,./result/rj/result.rank1-14b.dl23-passage_duped.json,0.99,0.427,0.406
+DL23->22,rank1-14b,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl23-passage_duped.json,./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,0.01,0.942,0.878
+DL23->22,rank1-14b,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-14b.dl23-passage_duped.json,./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,0.02,0.926,0.928
+DL23->22,rank1-14b,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-14b.dl23-passage_duped.json,./result/system_ranking/result.rank1-14b.dl22-passage_duped.json,0.02,0.808,0.746
+DL23->22,rank1-14b,rj,Cohen’s κ,./result/rj/result.rank1-14b.dl23-passage_duped.json,./result/rj/result.rank1-14b.dl22-passage_duped.json,0.99,0.406,0.427
+DL22->23,rank1-32b-awq,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl23-passage_duped.json,0.13,0.920,0.929
+DL22->23,rank1-32b-awq,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl23-passage_duped.json,0.12,0.936,0.896
+DL22->23,rank1-32b-awq,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl23-passage_duped.json,0.91,0.769,0.844
+DL22->23,rank1-32b-awq,rj,Cohen’s κ,./result/rj/result.rank1-32b-awq.dl22-passage_duped.json,./result/rj/result.rank1-32b-awq.dl23-passage_duped.json,0.99,0.426,0.392
+DL23->22,rank1-32b-awq,system_ranking,ndcg@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl23-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,0.1,0.936,0.913
+DL23->22,rank1-32b-awq,system_ranking,map@100 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl23-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,0.26,0.906,0.933
+DL23->22,rank1-32b-awq,system_ranking,mrr@10 (Kendall τ),./result/system_ranking/result.rank1-32b-awq.dl23-passage_duped.json,./result/system_ranking/result.rank1-32b-awq.dl22-passage_duped.json,0.94,0.844,0.769
+DL23->22,rank1-32b-awq,rj,Cohen’s κ,./result/rj/result.rank1-32b-awq.dl23-passage_duped.json,./result/rj/result.rank1-32b-awq.dl22-passage_duped.json,0.99,0.392,0.426

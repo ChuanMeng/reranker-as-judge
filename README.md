@@ -6,15 +6,16 @@ In this paper, we reproduce three re-rankers from different re-ranker families (
 The code in this repository can reproduce all results reported in the paper.
 
 This repository is structured into five distinct parts:
-- [1. Prerequisite](#1-prerequisite)
-- [2. Data preparation](#2-data-preparation)
-- [3. Reproducing results](#3-reproducing-results)
-  - [3.1 RQ1: Re-rankers as judges via direct generation](#31-rq1-re-rankers-as-judges-via-direct-generation)
-  - [3.2 RQ2: Re-rankers as judges via score thresholding](#32-rq2-re-rankers-as-judges-via-score-thresholding)
-  - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#33-rq3-bias-of-re-ranker-based-judges-towards-re-rankers)
-- [4. Create plots](#4-create-plots)
+- [1. Prerequisite](#sec-prereq)
+- [2. Data preparation](#sec-data)
+- [3. Reproducing results](#sec-reproduce)
+  - [3.1 RQ1: Re-rankers as judges via direct generation](#sec-rq1)
+  - [3.2 RQ2: Re-rankers as judges via score thresholding](#sec-rq2)
+  - [3.3 RQ3: Bias of re-ranker-based judges towards re-rankers](#sec-rq2)
+- [4. Create plots](#sec-plots)
 - [5. Results on nDCG@10 (We report results on ndcg10 here because of limited space in the paper)](#sec-ndcg10)
 
+<a id="sec-prereq"></a>
 ## 1. Prerequisite
 We recommend executing all processes in a Linux environment.
 Install dependencies:
@@ -23,6 +24,7 @@ pip install -r requirements.txt
 ```
 Also, please install [Tevatron](https://github.com/texttron/tevatron) and [Pyserini](https://github.com/castorini/pyserini) in advance.
 
+<a id="sec-data"></a>
 ## 2. Data preparation
 ### 2.1 Create folders
 Create the following folders:
@@ -102,8 +104,10 @@ Please contact Shivani Upadhyay, the first author of the paper [UMBRELA](https:/
 Place these files in the folder `./output/rq1_2/qrels/`.
 And please rename these files as `qrels.gpt-4o_0123_100_0_1.dl19-passage.txt`, `qrels.gpt-4o_0123_100_0_1.dl20-passage.txt`, `qrels.gpt-4o_0123_100_0_1.dl21-passage.txt`, `qrels.gpt-4o_0123_100_0_1.dl22-passage_duped.txt` and `qrels.gpt-4o_0123_100_0_1.dl23-passage_duped.txt`.
 
+<a id="sec-reproduce"></a>
 ## 3. Reproducing results
 
+<a id="sec-rq1"></a>
 ### 3.1 RQ1: Re-rankers as judges via direct generation
 
 #### 3.1.1 Generate re-ranker input files
@@ -376,7 +380,7 @@ python -u evaluate_rj.py \
 done
 done
 ```
-
+<a id="sec-rq2"></a>
 ### 3.2 RQ2: Re-rankers as judges via score thresholding
 
 #### 3.2.1 Run RankLLaMA
@@ -677,7 +681,7 @@ echo "Done. Results written to: $OUT_CSV"
 ```
 The above command will generate the `cross_eval_summary.csv` file that records the selected threshold for each dataset under each target metric.
 
-
+<a id="sec-rq3"></a>
 ### 3.3 RQ3: Bias of re-ranker-based judges towards re-rankers
 
 Before going into details, we need to create run folders for each dataset; each folder contains runs of BM25 and BM25 with re-rankers:
@@ -1028,7 +1032,7 @@ python -u evaluate_system_ranking.py \
 done
 done
 ```
-
+<a id="sec-plots"></a>
 ## 4. Create plots
 Run `rq2_thresholding.ipynb` to reproduce all plots for RQ2 (Re-rankers as judges via score thresholding) presented in the paper.
 The reproduced plots will be saved in the `./plots/rq1_2` directory.
